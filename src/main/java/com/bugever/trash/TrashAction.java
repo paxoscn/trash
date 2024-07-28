@@ -7,10 +7,9 @@ import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.project.DumbAwareAction;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.VirtualFile;
-import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.IOException;
+import java.awt.*;
 
 public class TrashAction extends DumbAwareAction {
 
@@ -28,20 +27,12 @@ public class TrashAction extends DumbAwareAction {
         if (files == null || files.length == 0) return;
 
         for (VirtualFile file : files) {
-            @NonNls @NotNull String absolutePath = file.getPath();
-            @NonNls @NotNull String script = "tell application \"Finder\" to delete POSIX file \""
-                    + absolutePath + "\"";
-
             try {
-                Runtime.getRuntime().exec(new String[] {
-                        "osascript",
-                        "-e",
-                        script
-                });
-            } catch (IOException e) {
+                Desktop.getDesktop().moveToTrash(file.toNioPath().toFile());
+            } catch (Exception e) {
                 Messages.showMessageDialog(
                         event.getProject(),
-                        "Failed to execute ActionScript: " + script + ". Exception: " + e.getClass().getName() + " " + e.getMessage(),
+                        "Failed to send the file " + file.getPath() + " to the Trash. Exception: " + e.getClass().getName() + " " + e.getMessage(),
                         "Failed to Remove the File",
                         Messages.getInformationIcon());
             }

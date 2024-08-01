@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.bugever"
-version = "1.0-SNAPSHOT"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -32,7 +32,7 @@ tasks {
 
     patchPluginXml {
         sinceBuild.set("222")
-        untilBuild.set("232.*")
+        untilBuild.set("242.*")
     }
 
     signPlugin {

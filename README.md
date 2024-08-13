@@ -27,7 +27,7 @@ JDK 17+
 
 # Usage
 
-1. Searching for `Trash` in the plugin marketplace.
+1. Search for `Trash` in the plugin marketplace.
 2. Install the plugin.
 3. Now you can right-click on file(s) or folder(s)
    and click the menu item `Trash...` to move them to the Trash.

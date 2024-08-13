@@ -14,7 +14,10 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    Move the file or the directory into the Trash.
+    Move the selected file(s) or folder(s) into the Trash.<br />
+    Note that it will skip usage searching so make sure
+    that what you are removing is unused anywhere,
+    or you'll have to recover it from the Trash manually.
   ]]></description>
 
     <!-- Product and plugin compatibility requirements.
